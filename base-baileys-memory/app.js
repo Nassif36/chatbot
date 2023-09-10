@@ -4,15 +4,13 @@ const WebWhatsappProvider = require('@bot-whatsapp/provider/baileys')
 const MockAdapter = require('@bot-whatsapp/database/mock')
 
  // Crear el flujo principal
- const flowPrincipal = addKeyword(['hola', 'ole', 'alo'])
+ const flowPrincipal = addKeyword(EVENTS.WELCOME)
  .addAnswer(['Hola Soy Sam tu coach virtual de La Mecca Fitness!! En que puedo ayudarte?'])
- .addAnswer(['Servicios , Clases y Aranceles > Opcion 1', 'Quiero Mi Rutina! > Opcion 2']);
+ .addAnswer(['Servicios , Clases y Aranceles.', 'Quiero Mi Rutina']);
 
 // Opcion 1
-const flowOpcion1 = addKeyword('Opcion 1')
+const flowOpcion1 = addKeyword('servicios', 'clases', 'aranceles')
  .addAnswer([
-   'Opcion 1 Respuesta.',
-   'Servicios',
    'Meccas Coffe',
    'Mecca Fitness Shop',
    'Clases y Horarios',
@@ -20,8 +18,8 @@ const flowOpcion1 = addKeyword('Opcion 1')
  ]);
 
 // Opcion 2
-const flowOpcion2 = addKeyword('Opcion 2')
- .addAnswer(['Opcion 2 Respuesta Que grupo muscular quisieras entrenar?'])
+const flowOpcion2 = addKeyword('quiero', 'rutina', 'ejercitar')
+ .addAnswer(['Que grupo muscular quisieras entrenar?'])
  .addAnswer(['Hombros', 'Pecho', 'Brazos', 'Espalda', 'Cuadriceps', 'Femorales y Gluteos']);
 
 // Hombre o Mujer
